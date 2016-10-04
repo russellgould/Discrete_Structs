@@ -11,7 +11,7 @@ SOURCES...: None
 #include <string>
 using namespace std;
 
-const int I_SIZE = 500; // size of word index
+const int I_SIZE = 100; // size of word index
 
 void inputWordToIndex(array<string, I_SIZE> &index, string word, int &iSize);
 void bubbleSort(array<string, I_SIZE> &index, int iSize);
@@ -45,7 +45,8 @@ int main() {
   return 0;
 }
 
-// utilizes a sequential search to input a single word to index,
+// utilizes a sequential search to input a single word to index, ignoring
+// duplicates
 void inputWordToIndex(array<string, I_SIZE> &index, string word, int &iSize) {
   bool found(0);
   if (iSize == 0) {
