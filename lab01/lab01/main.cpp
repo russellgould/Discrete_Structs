@@ -22,9 +22,12 @@ int main() {
   string inFilePath = "", wordBuf = "";
   ifstream inFile;
   int iSize(0);
+
+  // initialize index
   for (size_t i(0); i < I_SIZE; i++) {
     index[i] = "";
   }
+
   cout << "Enter input file path: ";
   getline(cin, inFilePath);
   inFile.open(inFilePath.c_str());
@@ -43,7 +46,6 @@ int main() {
 }
 
 // utilizes a sequential search to input a single word to index,
-// returns true if input is successful
 void inputWordToIndex(array<string, I_SIZE> &index, string word, int &iSize) {
   bool found(0);
   if (iSize == 0) {
