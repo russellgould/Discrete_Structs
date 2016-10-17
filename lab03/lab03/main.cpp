@@ -8,22 +8,23 @@ http://www.cplusplus.com/forum/general/103479/
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 string checkInput();
-void matchSizes(string &bin1, string &bin2);
+void matchSizes(vector<char> &num1, vector<char> &num2);
 
 int main() {
   cout << "Enter First Binary Number: ";
-  string bin1 = checkInput();
+  string str1 = checkInput();
 
   cout << "Enter Second Binary Number: ";
-  string bin2 = checkInput();
+  string str2 = checkInput();
 
-  matchSizes(bin1, bin2);
+  vector<char> vec1(str1.begin(), str1.end());
+  vector<char> vec2(str2.begin(), str2.end());
 
-  cout << bin1 << " - " << bin1.size() << endl;
-  cout << bin2 << " - " << bin2.size() << endl;
+  matchSizes(vec1, vec2);
 
   return 0;
 }
@@ -37,7 +38,7 @@ string checkInput() {
     getline(cin, tempStr);
     for (int i = 0; i < tempStr.length(); i++) {
       if ((tempStr.compare(i, 1, "0") != 0) &&
-          (tempStr.compare(i, 1, "1") != 0)) {
+        (tempStr.compare(i, 1, "1") != 0)) {
         valid = false;
         cout << "Enter Valid Binary Number: ";
         break;
@@ -50,15 +51,16 @@ string checkInput() {
 
 // left-fills the shorter binary number with 0's if str1 & str2 have different
 // sizes
-void matchSizes(string &bin1, string &bin2) {
-  if (bin1.size() != bin2.size()) {
+void matchSizes(vector<char> &num1, vector<char> &num2) {
+  if (num1.size() != num2.size()) {
     string big, small;
-    if (bin1.size() > bin2.size()) {
-      size_t dif = bin1.size() - bin2.size();
-      bin2.insert(0, dif, '0');
-    } else {
-      size_t dif = bin2.size() - bin1.size();
-      bin1.insert(0, dif, '0');
+    if (num1.size() > num2.size()) {
+      size_t dif = num1.size() - num2.size();
+      num2.insert(num2.begin(), dif, '0');
+    }
+    else {
+      size_t dif = num2.size() - num1.size();
+      num1.insert(num1.begin(), dif, '0');
     }
   }
 }
