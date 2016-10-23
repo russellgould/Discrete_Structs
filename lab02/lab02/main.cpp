@@ -69,10 +69,14 @@ bool ifThen(bool P, bool Q) { return (!P || Q); }
 bool iff(bool P, bool Q) { return (P == Q); }
 
 bool premise(bool P, bool Q, bool R) {
-  return iff(((P || Q) && ifThen(Q, R) ^ (P && R)), (R && Q));
+  //return iff(((P || Q) && ifThen(Q, R) ^ (P && R)), (R && Q));
+  return (P && Q) || (P && !Q) || (!P && !Q);
 }
 
-bool conclusion(bool P, bool Q, bool R) { return (P || R); }
+bool conclusion(bool P, bool Q, bool R) {
+  //return (P || R);
+  return (P || !Q);
+}
 
 bool isValid(bool table[]) {
   bool valid(1);
