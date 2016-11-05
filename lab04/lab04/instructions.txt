@@ -1,0 +1,9 @@
+In this lab you will find the prime factors of any integer. Your program 
+should accept an integer and first determine if it is prime.
+
+If it is prime you should report that. If it is not prime, the program should 
+list all the prime factors. Some prime factors may be listed more than once, 
+if appropriate.  
+
+For example, if the number 45 is input, the program should list the prime 
+factors as 3, 3, 5. You will have 2 weeks to complete this program.
