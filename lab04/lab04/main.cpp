@@ -59,6 +59,7 @@ bool isPrime(int num) {
   return true;
 }
 
+// the first time this is called, num is known to be non-prime
 void getFactors(int num, vector<int> &factors) {
   if (isPrime(num)) { // only final factor will satisfy this
     factors.push_back(num);
