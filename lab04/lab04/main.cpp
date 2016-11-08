@@ -25,7 +25,7 @@ int main() {
     } else {
       getFactors(num, factors);
       cout << "The prime factors of " << num << " are: ";
-      for (int t(0); t < factors.size(); t++) {
+      for (size_t t(0); t < factors.size(); t++) {
         if (t == factors.size() - 1) {
           cout << factors[t] << "." << endl;
         } else {
