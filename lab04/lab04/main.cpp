@@ -15,12 +15,16 @@ void getFactors(int num, vector<int> &factors);
 
 int main() {
   for (int i(0); i < 4; i++) {
-    cout << "Please enter an integer that you would like the prime factors of:";
+    cout << "Please enter a positive integer greater than 1 that you would "
+            "like the prime factors of:";
     int num(0);
     cin >> num;
     vector<int> factors;
     if (isPrime(num)) {
       cout << "That number is prime." << endl;
+      cout << endl;
+    } else if (num <= 1) {
+      cout << "That number was not positive and greater than 1." << endl;
       cout << endl;
     } else {
       getFactors(num, factors);
@@ -60,7 +64,7 @@ void getFactors(int num, vector<int> &factors) {
     factors.push_back(num);
     return;
   } else {
-    for (int t(2); t <= (num / 2); t++) {
+    for (int t(2); t * t <= num; t++) {
       if (isPrime(t) && num % t == 0) {
         factors.push_back(t);
         getFactors(num / t, factors);
