@@ -1,0 +1,11 @@
+Write a C++ program that implements Algorithm 5.1.1 page 241 using the steps 
+and data structures shown. 
+
+Use the division algorithm shown in Epp, rather than integer or division 
+operators in C++.  You can use the code from last week for the division 
+algorithm.  
+
+Write the code to prompt the user for a decimal number and print out the 
+binary result.  The program should be set up to repeat the process 5 times, 
+so I can test it with 5 different decimal numbers without having to restart 
+it each time.
