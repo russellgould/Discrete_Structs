@@ -70,7 +70,7 @@ int main() {
   outputPair(setProd);
 
   cout << endl;
-  cout << "Cardinality of Power Set of Cross Product:" << pow(2, setProd.size())
+  cout << "Cardinality of Power Set of Cross Product: 2^" << setProd.size()
        << endl;
 
   return 0;

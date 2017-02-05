@@ -1,0 +1,20 @@
+In this lab, use the technique on page 485 to calculate the residue of an 
+integer of the form a^n.  Your program should prompt the user for a, and n and 
+the modulus.  Your program will then print out the residue.  The program 
+should loop through 4 times so that I can test it with 4 different values of 
+a, n and modulus.  You must use the technique on page 485 for this program.  
+Use the long long type for intermediate results since raising even small 
+numbers to powers can result in very large numbers.
+
+You will need to have a decimal to binary conversion to implement the algorithm 
+If you took CS250 last quarter, you can copy that piece of code into your 
+program. 
+
+I recommend that you first write a function to calculate residues for power of 
+2.  You can then use this function to determine the residues for numbers that 
+are not powers of 2.  
+
+You can test your code for small numbers and exponents using the C++ modulo 
+(%) but for larger numbers you will not get correct answers as the numbers 
+will be too big.  Use the examples in the book to check your code for larger 
+numbers.  (p485, 492)
