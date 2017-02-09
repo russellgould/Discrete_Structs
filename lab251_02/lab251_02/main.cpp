@@ -1,7 +1,7 @@
 /*
 NAME......: Russ Gould
 CRN.......: 11674
-ASSIGNMENT: Lab01
+ASSIGNMENT: Lab02
 SOURCES...: none
 */
 
