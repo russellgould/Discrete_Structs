@@ -15,46 +15,32 @@ void divide(int num1, int num2, int &q, int &r);
 void dec_to_bin(int num, vector<int> &bin_result);
 void get_residues(vector<int> &result, int size, int base, int modulus);
 int big_mod(int base, int exponent, int modulus);
-void makeReadable(ifstream &inFile);
-void encrypt(ifstream &inFile);
 void decrypt(ifstream &inFile, int exponent, int modulus);
 
 int main() {
-  for (size_t n(0); n < 5; n++) {
-    string inFilePath("");
-    ifstream inFile;
+  string inFilePath("");
+  ifstream inFile;
 
-    cout << "Enter input file path: ";
+  cout << "Enter input file path: ";
+  getline(cin, inFilePath);
+  inFile.open(inFilePath.c_str());
+  while (!inFile.good()) {
+    cout << "Couldn't open that file. Try another: ";
     getline(cin, inFilePath);
     inFile.open(inFilePath.c_str());
-    while (!inFile.good()) {
-      cout << "Couldn't open that file. Try another: ";
-      getline(cin, inFilePath);
-      inFile.open(inFilePath.c_str());
-    }
-    makeReadable(inFile);
-    inFile.close();
-    inFile.open("readable_input.txt");
-    encrypt(inFile);
-    inFile.close();
-    inFile.open("encrypted.txt");
-    decrypt(inFile, 107, 323);
-    // cout << "Please enter the value of the base:";
-    // int base(0);
-    // cin >> base;
-    // cout << "Please enter the value of the exponent:";
-    // int exponent(0);
-    // cin >> exponent;
-    // cout << "Please enter the value of the modulus:";
-    // int modulus(0);
-    // cin >> modulus;
-    // int result(big_mod(base, exponent, modulus));
-    // cout << base << "^" << exponent << " mod " << modulus << " = " << result
-    //     << endl;
-    // cout << endl;
-
-    inFile.close();
   }
+
+  cout << "Please enter the value of the exponent:";
+  int exponent(0);
+  cin >> exponent;
+  cout << "Please enter the value of the modulus:";
+  int modulus(0);
+  cin >> modulus;
+  cout << endl;
+
+  decrypt(inFile, exponent, modulus);
+
+  inFile.close();
   return 0;
 }
 
@@ -107,38 +93,15 @@ int big_mod(int base, int exponent, int modulus) {
   return (prod % modulus);
 }
 
-void makeReadable(ifstream &inFile) {
-  char cbuf(0);
-  ofstream output;
-  output.open("readable_input.txt");
-  while (inFile.get(cbuf)) {
-    if (cbuf == 32) {
-      output << 27 << " ";
-    } else {
-      output << cbuf - 64 << " ";
-    }
-  }
-  output.close();
-}
-
-void encrypt(ifstream &inFile) {
-  int ibuf(0);
-  ofstream encrypted;
-  encrypted.open("encrypted.txt");
-  while (inFile >> ibuf) {
-    encrypted << big_mod(ibuf, 35, 323) << " ";
-  }
-  encrypted.close();
-}
-
 void decrypt(ifstream &inFile, int exponent, int modulus) {
-  int ibuf1(0), ibuf2(0);
-  while (inFile >> ibuf1) {
-    ibuf2 = big_mod(ibuf1, exponent, modulus);
-    if (ibuf2 == 27) {
+  int encrypted(0), decrypted(0);
+  while (inFile >> encrypted) {
+    decrypted = big_mod(encrypted, exponent, modulus);
+    if (decrypted == 27) {
       cout << " ";
     } else {
-      cout << static_cast<char>(ibuf2 + 64);
+      cout << static_cast<char>(decrypted + 64);
     }
   }
+  cout << endl;
 }
