@@ -1,0 +1,18 @@
+For lab 3, write a program to decode a message using public key cryptography 
+based on the RSA cipher.  You can use the code you wrote last week to calculate 
+the residues.  
+
+The input  will be a list of 1, 2 or 3 digit numbers with spaces in between.  
+Each number will correspond to a letter.  Words will be separated by a code for 
+a "space".   The list may contain up to 100 numbers.  
+
+Your program should prompt the user for the name of a file which will contain 
+the encrypted message. (If you took CS250 last semester, you should have a 
+routine in the pre-req lab for opening and reading a file.  )
+
+The output of this program will be the decrypted message.  Decrypt the message 
+using formula 8.4.6 on page 491.  I will provide the appropriate parameters 
+when the time comes.
+
+In the decoded message 1 will correspond to A, 2 to B, 3 to C etc.  I  will use 
+the number 27 to correspond to a space between words.
