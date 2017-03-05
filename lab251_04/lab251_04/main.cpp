@@ -97,9 +97,6 @@ int main() {
   cout << endl << "Result of Kruskal's algorithm:" << endl;
   printMatrix(krusk_matrix);
 
-  std::cout << "Press ENTER or close the window to exit...";
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
   return 0;
 }
 
