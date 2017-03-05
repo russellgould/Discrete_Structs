@@ -38,7 +38,9 @@ int main() {
   cin >> modulus;
   cout << endl;
 
+  cout << "Decrypted Text:" << endl;
   decrypt(inFile, exponent, modulus);
+  cout << endl;
 
   inFile.close();
   return 0;
