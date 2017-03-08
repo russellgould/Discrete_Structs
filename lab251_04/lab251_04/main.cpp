@@ -135,12 +135,14 @@ size_t getMatrixSize(int m[][10]) {
 
 void printMatrix(int m[][10]) {
   int boxSize = getMaxEntryLen(m);
+  int totalWeight(0);
   size_t mSize = getMatrixSize(m);
   cout << endl;
   for (unsigned i = 0; i < mSize; i++) {
     cout << "[";
     for (unsigned j = 0; j < mSize; j++) {
       int d(m[i][j]);
+      totalWeight += d;
       if (j == 0) {
         cout << setw(boxSize) << setfill(' ') << d;
       } else {
@@ -149,6 +151,7 @@ void printMatrix(int m[][10]) {
     }
     cout << "]" << endl;
   }
+  cout << endl << "Total graph weight: " << (totalWeight / 2) << endl;
 }
 
 void getEdges(int m[][10], vector<edge> &edges) {
