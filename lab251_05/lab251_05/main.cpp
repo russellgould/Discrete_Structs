@@ -78,7 +78,6 @@ void printResults(double x, vector<int> coeffs, size_t caseNo,
     }
   }
   cout << endl;
-  cout << "  Result     = " << result << endl;
   cout << showpoint << fixed << setprecision(12);
   cout << "  CPU Time:    " << elapsed_time.count() << endl;
   cout << setprecision(2);
