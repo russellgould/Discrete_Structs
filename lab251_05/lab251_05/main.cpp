@@ -5,7 +5,7 @@ ASSIGNMENT: Lab05
 SOURCES...: None
 */
 
-#pragma warning(disable : 4996)
+// #pragma warning(disable : 4996)
 
 #include <chrono>
 #include <ctime>
@@ -18,7 +18,7 @@ using namespace std;
 using namespace chrono;
 
 void printResults(double x, vector<int> coeffs, size_t caseNo,
-                  duration<long double> &elapsed_time, double result);
+                  duration<float> &elapsed_time, double result);
 
 int main() {
   time_point<system_clock> start;
@@ -46,7 +46,7 @@ int main() {
     }
     end = system_clock::now();
     // display info
-    duration<long double> elapsed_time = end - start;
+    duration<float> elapsed_time = end - start;
     time_t end_time = system_clock::to_time_t(end);
 
     printResults(x, coeffs, (n - 1), elapsed_time, result);
@@ -56,8 +56,8 @@ int main() {
 }
 
 void printResults(double x, vector<int> coeffs, size_t caseNo,
-                  duration<long double> &elapsed_time, double result) {
-  cout << showpoint << fixed << setprecision(5);
+                  duration<float> &elapsed_time, double result) {
+  cout << showpoint << fixed << setprecision(2);
   cout << "Case " << caseNo << ": x = " << x << ", ";
   for (size_t i = 0; i < coeffs.size(); i++) {
     if (i == (coeffs.size() - 1)) {
@@ -79,7 +79,7 @@ void printResults(double x, vector<int> coeffs, size_t caseNo,
   }
   cout << endl;
   cout << "  Result     = " << result << endl;
-  cout << showpoint << fixed << setprecision(8);
+  cout << showpoint << fixed << setprecision(12);
   cout << "  CPU Time:    " << elapsed_time.count() << endl;
   cout << setprecision(2);
   cout << endl;
